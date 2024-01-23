@@ -1,3 +1,6 @@
+<%
+  field_type = model.class.attribute_types[field.to_s].type
+%>
 <turbo-frame id="<%= field_frame_id model: model, field: field %>">
   <div data-controller="partials">
     <%= form_with(
@@ -8,13 +11,7 @@
           "partials-cancel-url-value": show_partial_path(model, model.id, field)
         }
     ) do |form| %>
-      <%= form.number_field field,
-            class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
-            data: {
-              "partials-target": "input",
-              action: "keydown.enter->partials#save keydown.esc->partials#cancel focusout->partials#cancel"
-            }
-      %>
+      <%= render partial: "partials/edit_#{field_type}_field", locals: { form: form, field: field } %>
     <% end %>
     <% if !model.valid? %>
       <% model.errors.each do | error | %>

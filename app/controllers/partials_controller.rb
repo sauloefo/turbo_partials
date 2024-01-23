@@ -1,16 +1,16 @@
 class PartialsController < ApplicationController
   def edit
     set_model
-    set_field_name
+    set_field
   end
 
   private
 
     def set_model
-      @model = params[:model_name].classify.constantize.find(params[:id])
+      @model = params[:model].classify.constantize.find(params[:id])
     end
 
-    def set_field_name
-      @field_name = params[:field_name]
+    def set_field
+      @field = params[:field]
     end
 end

@@ -1,24 +1,7 @@
-# README
+# Turbo Partials
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+The major goal of Turbo Partials (temporary name) is to enable users to edit fields in place without having to navigate to a different page and then click on some button to actually save the changes in the database.
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+At the moment, the changes of a field are saved when the user hits enter and the changes are discarded when the user hits escape e leave the field without hitting enter.

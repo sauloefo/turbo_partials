@@ -6,7 +6,7 @@ module ApplicationHelper
   def render_field (model:, field:, edit_state: false)
     return render partial: "partials/edit_field", locals: {model: model, field: field} if edit_state
 
-    render partial: "partials/show", locals: {model: model, field: field}
+    render partial: "partials/show_field", locals: {model: model, field: field}
   end
 
 end

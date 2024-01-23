@@ -1,4 +1,4 @@
-<div id="<%= dom_id person %>">
+<div id="<%= dom_id person %>" class="border-b">
   <p class="my-5">
     <strong class="block font-medium mb-1">Name:</strong>
     <%= person.name %>
@@ -6,12 +6,10 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Age:</strong>
-    <%= person.age %>
+    <turbo-frame id="<%= partial_id person, "age" %>">
+      <%= link_to edit_partial_path "person", person.id, "age" do %>
+        <%= person.age %>
+      <% end %>
+    </turbo-frame>
   </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this person", person, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this person", edit_person_path(person), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
 </div>

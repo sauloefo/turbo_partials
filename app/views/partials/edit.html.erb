@@ -1,0 +1,18 @@
+<turbo-frame id="<%= partial_id @model, @field_name %>">
+  <div data-controller="partials">
+    <%= form_with(
+        model: @model,
+        class: "contents",
+        data: {
+          "partials-target": "form"
+        }
+    ) do |form| %>
+      <%= form.number_field @field_name,
+            class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
+            data: {
+              action: "keydown.enter->partials#submitForm"
+            }
+      %>
+    <% end %>
+  </div>
+</turbo-frame>

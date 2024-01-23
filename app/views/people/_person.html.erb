@@ -6,10 +6,6 @@
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Age:</strong>
-    <turbo-frame id="<%= partial_id person, "age" %>">
-      <%= link_to edit_partial_path "person", person.id, "age" do %>
-        <%= person.age %>
-      <% end %>
-    </turbo-frame>
+    <%= render_field model: person, field: :age %>
   </p>
 </div>

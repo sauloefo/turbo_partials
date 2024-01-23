@@ -1,0 +1,26 @@
+<turbo-frame id="<%= field_frame_id model: model, field: field %>">
+  <div data-controller="partials">
+    <%= form_with(
+        model: model,
+        class: "contents",
+        data: {
+          "partials-target": "form"
+        }
+    ) do |form| %>
+      <%= form.number_field field,
+            class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full",
+            data: {
+              "partials-target": "input",
+              action: "keydown.enter->partials#save keydown.esc->partials#cancel"
+            }
+      %>
+    <% end %>
+    <% if !model.valid? %>
+      <% model.errors.each do | error | %>
+        <div class="text-red-700 bg-red-200 p-1 rounded mt-2">
+          <p><%= error.full_message %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</turbo-frame>

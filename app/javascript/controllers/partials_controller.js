@@ -11,7 +11,11 @@ export default class extends Controller {
     this.inputTarget.select()
   }
 
-  submitForm() {
+  save() {
     this.formTarget.requestSubmit()
+  }
+
+  cancel() {
+    window.location.reload() // TODO: replace this by a mechanism that doesn't refresh the entire page
   }
 }

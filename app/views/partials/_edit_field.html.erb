@@ -1,5 +1,6 @@
 <%
   field_type = model.class.attribute_types[field.to_s].type
+  field_errors = model.errors.select { | error | error.attribute == field.to_sym } if !model.valid?
 %>
 <turbo-frame id="<%= field_frame_id model: model, field: field %>">
   <div data-controller="partials">
@@ -13,8 +14,8 @@
     ) do |form| %>
       <%= render partial: "partials/edit_#{field_type}_field", locals: { form: form, field: field } %>
     <% end %>
-    <% if !model.valid? %>
-      <% model.errors.each do | error | %>
+    <% if field_errors.present? %>
+      <% field_errors.each do | error | %>
         <div class="text-red-700 bg-red-200 p-1 rounded mt-2">
           <p><%= error.full_message %></p>
         </div>

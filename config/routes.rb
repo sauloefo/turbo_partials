@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
+  get "partial/:model/:id/:field" => "partials#edit", as: :show_partial
   get "partial/:model/:id/:field/edit" => "partials#edit", as: :edit_partial
 
 end

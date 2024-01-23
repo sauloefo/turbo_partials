@@ -1,5 +1,5 @@
 <turbo-frame id="<%= field_frame_id model: model, field: field %>">
-  <%= link_to edit_partial_path model.class.name.downcase, model.id, field do %>
+  <%= link_to field_path(model: model, field: field) do %>
     <%= model[field] %>
   <% end %>
 </turbo-frame>

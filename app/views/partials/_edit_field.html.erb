@@ -4,7 +4,8 @@
         model: model,
         class: "contents",
         data: {
-          "partials-target": "form"
+          "partials-target": "form",
+          "partials-cancel-url-value": show_partial_path(model, model.id, field)
         }
     ) do |form| %>
       <%= form.number_field field,

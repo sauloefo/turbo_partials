@@ -6,6 +6,10 @@ export default class extends Controller {
     'input'
   ]
 
+  static values = {
+    cancelUrl: String
+  }
+
   connect() {
     this.inputTarget.focus()
     this.inputTarget.select()
@@ -16,6 +20,9 @@ export default class extends Controller {
   }
 
   cancel() {
-    window.location.reload() // TODO: replace this by a mechanism that doesn't refresh the entire page
+    // TODO: validate if this is the best approach to cancel the edition
+    this.formTarget.action = this.cancelUrlValue
+    this.formTarget.method = 'GET'
+    this.formTarget.requestSubmit()
   }
 }

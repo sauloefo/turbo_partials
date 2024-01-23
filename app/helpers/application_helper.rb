@@ -3,10 +3,12 @@ module ApplicationHelper
     "#{dom_id(model)}_#{field}"
   end
 
-  def render_field (model:, field:, edit_state: false)
-    return render partial: "partials/edit_field", locals: {model: model, field: field} if edit_state
-
+  def render_field (model:, field:)
     render partial: "partials/show_field", locals: {model: model, field: field}
+  end
+
+  def render_field_form (model:, field:)
+    render partial: "partials/edit_field", locals: {model: model, field: field}
   end
 
   def field_path (model:, field:)

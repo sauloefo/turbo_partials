@@ -1,6 +1,12 @@
-<turbo-frame id="<%= field_frame_id model: model, field: field %>">
-  <strong class="block font-medium mb-1"><%= model.class.human_attribute_name field %>:</strong>
-  <%= link_to field_form_path(model: model, field: field) do %>
-    <%= model[field] %>
+<%
+  field_name = model.class.human_attribute_name field
+  field_value = model[field]
+
+  frame_id = field_frame_id model: model, field: field
+  field_form_url = field_form_path(model: model, field: field )
+%>
+<turbo-frame id="<%= frame_id %>">
+  <%= link_to field_form_url do %>
+    <p><%= field_value %></p>
   <% end %>
 </turbo-frame>

@@ -2,11 +2,9 @@ class PartialsController < ApplicationController
   before_action :set_model, :set_field
 
   def edit
-    helpers.render_field_form model: @model, field: @field
   end
 
   def show
-    helpers.render_field model: @model, field: @field
   end
 
   private

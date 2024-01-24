@@ -12,6 +12,7 @@
           "partials-cancel-url-value": show_partial_path(model, model.id, field)
         }
     ) do |form| %>
+      <strong class="block font-medium mb-1"><%= form.label field %>:</strong>
       <%= render partial: "partials/edit_#{field_type}_field", locals: { form: form, field: field } %>
     <% end %>
     <% if field_errors.present? %>

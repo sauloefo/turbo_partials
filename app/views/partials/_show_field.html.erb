@@ -1,4 +1,5 @@
 <turbo-frame id="<%= field_frame_id model: model, field: field %>">
+  <strong class="block font-medium mb-1"><%= model.class.human_attribute_name field %>:</strong>
   <%= link_to field_path(model: model, field: field) do %>
     <%= model[field] %>
   <% end %>
